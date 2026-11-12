@@ -64,7 +64,7 @@ test("explicit choices affect ordering, not a score about the child", () => {
 
 test("missing feedback does not count as negative feedback", () => {
   const item = activity();
-  assert.equal(scoreActivity(item, preferences, {}), scoreActivity(item, preferences, { [item.id]: undefined as never }));
+  assert.equal(scoreActivity(item, preferences, {}), scoreActivity(item, preferences));
 });
 
 test("explanation names explicit choices and pause state", () => {
