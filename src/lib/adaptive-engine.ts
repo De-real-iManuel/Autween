@@ -25,7 +25,7 @@ export type Feedback = Record<string, "again" | "later">;
  * personalization inputs. No behavioural, emotional, diagnostic or speech
  * inference is performed. Safety eligibility is checked before ranking.
  */
-export function isEligible(activity: Activity, preferences: Preferences): boolean {
+export function isEligible(activity: Activity): boolean {
   return Boolean(activity.id) && activity.modes.length > 0 && activity.safety === "approved";
 }
 
@@ -41,7 +41,7 @@ export function scoreActivity(activity: Activity, preferences: Preferences, feed
 }
 
 export function rankActivities<T extends Activity>(activities: T[], preferences: Preferences, feedback: Feedback = {}): T[] {
-  const eligible = activities.filter(activity => isEligible(activity, preferences));
+  const eligible = activities.filter(activity => isEligible(activity));
   if (!preferences.personalization) return [...eligible];
   return [...eligible].sort((a, b) => scoreActivity(b, preferences, feedback) - scoreActivity(a, preferences, feedback));
 }
