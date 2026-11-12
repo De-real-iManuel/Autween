@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Check, Heart, Leaf, Moon, Plus, RotateCcw, Sparkles, Sun, Users, X } from "lucide-react";
 import { explainActivity, rankActivities, type Activity, type Interest, type ParticipationMode, type Preferences } from "@/lib/adaptive-engine";
