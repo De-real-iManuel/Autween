@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState } from "react";\nimport Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -56,7 +56,7 @@ export default function HomePage() {
         </nav>
         <div className="nav-actions">
           <button className="text-button" onClick={() => { setScreen("signin"); setSubmitted(false); }}>Log in</button>
-          <button className="nav-cta" onClick={() => { setScreen("signup"); setSubmitted(false); }}>Get started <ArrowUpRight size={16} /></button>
+          <Link className="nav-cta" href="/play">Try the demo <ArrowUpRight size={16} /></Link>
         </div>
       </header>
 
@@ -68,7 +68,7 @@ export default function HomePage() {
               <h1>Big worlds.<br /><span>Little steps.</span><br />Your kind of fun.</h1>
               <p className="hero-text">A friendly place to make things, explore ideas and find your people. No pressure to be a certain way. Just room to be yourself.</p>
               <div className="hero-actions">
-                <button className="primary-button" onClick={() => setScreen("signup")}>Come on in <ArrowRight size={18} /></button>
+                <Link className="primary-button" href="/play">Try Autween <ArrowRight size={18} /></Link>
                 <button className="secondary-button" onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}>Take a little tour</button>
               </div>
               <div className="hero-note"><ShieldCheck size={17} /> Designed around choice, kindness and safety.</div>
