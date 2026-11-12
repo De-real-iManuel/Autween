@@ -18,7 +18,13 @@ const interestOptions: { id: Interest; label: string; emoji: string }[] = [
   { id: "nature", label: "Nature", emoji: "🌿" }, { id: "animals", label: "Animals", emoji: "🦊" },
 ];
 
-const gardenObjects = [\n  { id: "flower", label: "Flower", emoji: "🌼" }, { id: "tree", label: "Tree", emoji: "🌳" },\n  { id: "mushroom", label: "Mushroom", emoji: "🍄" }, { id: "butterfly", label: "Butterfly", emoji: "🦋" },\n  { id: "sun", label: "Sun", emoji: "☀️" }, { id: "cloud", label: "Cloud", emoji: "☁️" },\n];\n\nconst objects = [
+const gardenObjects = [
+  { id: "flower", label: "Flower", emoji: "🌼" }, { id: "tree", label: "Tree", emoji: "🌳" },
+  { id: "mushroom", label: "Mushroom", emoji: "🍄" }, { id: "butterfly", label: "Butterfly", emoji: "🦋" },
+  { id: "sun", label: "Sun", emoji: "☀️" }, { id: "cloud", label: "Cloud", emoji: "☁️" },
+];
+
+const objects = [
   { id: "coral", label: "Coral", emoji: "🪸" }, { id: "fish", label: "Fish", emoji: "🐠" },
   { id: "turtle", label: "Turtle", emoji: "🐢" }, { id: "shell", label: "Shell", emoji: "🐚" },
   { id: "plant", label: "Sea plant", emoji: "🌿" }, { id: "star", label: "Star", emoji: "⭐" },
@@ -45,10 +51,17 @@ export default function PlayPage() {
     { id: 2, emoji: "🐠", label: "Fish", by: "Friend", tilt: 4 },
     { id: 3, emoji: "🌿", label: "Sea plant", by: "You", tilt: 2 },
   ]);
-  const [feedback, setFeedback] = useState<Record<string, "again" | "later">>({});\n  const [activeActivity, setActiveActivity] = useState("world");\n  const [storyCharacter, setStoryCharacter] = useState("🦊");\n  const [storyPlace, setStoryPlace] = useState("🌳");\n  const [storyEvent, setStoryEvent] = useState("✨");\n  const [patternItems, setPatternItems] = useState<string[]>(["🔵", "🟡", "🔵", "🟡"]);
+  const [feedback, setFeedback] = useState<Record<string, "again" | "later">>({});
+  const [activeActivity, setActiveActivity] = useState("world");
+  const [storyCharacter, setStoryCharacter] = useState("🦊");
+  const [storyPlace, setStoryPlace] = useState("🌳");
+  const [storyEvent, setStoryEvent] = useState("✨");
+  const [patternItems, setPatternItems] = useState<string[]>(["🔵", "🟡", "🔵", "🟡"]);
   const [calm, setCalm] = useState(false);
 
-  const ranked = useMemo(() => rankActivities(activities, preferences, feedback), [preferences, feedback]);\n  const currentActivity = activities.find(activity => activity.id === activeActivity) ?? activities[0];\n  const availableObjects = activeActivity === "garden" ? gardenObjects : objects;
+  const ranked = useMemo(() => rankActivities(activities, preferences, feedback), [preferences, feedback]);
+  const currentActivity = activities.find(activity => activity.id === activeActivity) ?? activities[0];
+  const availableObjects = activeActivity === "garden" ? gardenObjects : objects;
   const toggleInterest = (interest: Interest) => setPreferences(p => ({
     ...p, interests: p.interests.includes(interest) ? p.interests.filter(x => x !== interest) : [...p.interests, interest],
   }));
@@ -113,20 +126,36 @@ export default function PlayPage() {
           {activeTab === "create" && (
             <>
               <div className="welcome-row"><div><div className="eyebrow-small">YOUR CREATIVE SPACE</div><h1>{currentActivity.id === "garden" ? "Our little garden" : currentActivity.id === "story" ? "A story of our own" : currentActivity.id === "patterns" ? "Patterns we can play with" : "Our underwater world"}</h1><p>Every little piece makes it more yours.</p></div><div className="world-count">{activeActivity === "story" ? "✍️" : activeActivity === "patterns" ? patternItems.length : worldItems.length}<span>{activeActivity === "story" ? "your story" : activeActivity === "patterns" ? "shapes" : "little things"}</span></div></div>
-              <div className="world-board-wrap">
-                <div className="world-board-header"><div><strong>{activeActivity === "garden" ? "🌼 The sunny garden" : "🌊 The blue place"}</strong><span>A shared creation · demo mode</span></div><div className="contributor-switch"><button className={participant === "You" ? "active" : ""} onClick={() => setParticipant("You")}>🌻 You</button><button className={participant === "Friend" ? "active" : ""} onClick={() => setParticipant("Friend")}>🦊 Friend</button></div></div>
-                <div className={activeActivity === "garden" ? "world-board garden-board" : "world-board"} aria-label={activeActivity === "garden" ? "Garden creative board" : "Underwater world creative board"}>
-                  <div className="board-sun">☀️</div><div className="board-seaweed seaweed-one">🌿</div><div className="board-seaweed seaweed-two">🌱</div>
-                  {worldItems.map(item => <button className="world-sticker" key={item.id} style={{ transform: "rotate(" + item.tilt + "deg)" }} onClick={() => setWorldItems(current => current.filter(entry => entry.id !== item.id))} aria-label={"Remove " + item.label + " added by " + item.by} title={"Remove " + item.label}><span>{item.emoji}</span><small>{item.by} · remove</small></button>)}
-                  <div className="board-caption">A place made together</div>
+              {activeActivity === "story" ? (
+                <div className="creative-panel">
+                  <div className="creative-panel-intro"><span>📖</span><div><strong>Let's make a tiny story</strong><p>Choose pictures to shape a story. You can change every choice.</p></div></div>
+                  <div className="story-step"><strong>Who is in your story?</strong><div>{["🦊","🐢","🐰","🐉","🐠"].map(item => <button className={storyCharacter === item ? "story-choice active" : "story-choice"} key={item} onClick={() => setStoryCharacter(item)}>{item}</button>)}</div></div>
+                  <div className="story-step"><strong>Where will they go?</strong><div>{["🌳","🏝️","🚀","🏰","🌊"].map(item => <button className={storyPlace === item ? "story-choice active" : "story-choice"} key={item} onClick={() => setStoryPlace(item)}>{item}</button>)}</div></div>
+                  <div className="story-step"><strong>What happens next?</strong><div>{["✨","🎁","🌈","🎵","🗝️"].map(item => <button className={storyEvent === item ? "story-choice active" : "story-choice"} key={item} onClick={() => setStoryEvent(item)}>{item}</button>)}</div></div>
+                  <div className="story-preview"><span>Your story so far</span><p>{storyCharacter} went to {storyPlace} and found {storyEvent}.</p><small>You made this story by choosing pictures. There is no wrong ending.</small></div>
                 </div>
-                <div className="object-picker"><div><strong>{activeActivity === "garden" ? "Add something to our garden" : "Add something to our world"}</strong><span>Choose an object. You can take turns or add something later.</span></div><div className="object-grid">{availableObjects.map(item => <button key={item.id} onClick={() => addObject(item)}><span>{item.emoji}</span><small>{item.label}</small><Plus size={13}/></button>)}</div></div>
-                <div className="collab-note"><Users size={17}/><span><strong>Two ways to take part.</strong> Switch between the two demo contributors to explore turn-taking. This prototype keeps the board on this device; it does not connect real children or sync across devices.</span></div>
-                <button className="reset-world" onClick={() => setWorldItems([])}><RotateCcw size={14}/> Clear the world</button>
-              </div>
+              ) : activeActivity === "patterns" ? (
+                <div className="creative-panel">
+                  <div className="creative-panel-intro"><span>🧩</span><div><strong>Make a pattern</strong><p>Choose shapes and colours to make a sequence that you like.</p></div></div>
+                  <div className="pattern-sequence" aria-label="Your pattern">{patternItems.map((item, index) => <button key={index} onClick={() => setPatternItems(items => items.filter((_, i) => i !== index))} aria-label={"Remove shape " + (index + 1)}>{item}</button>)}</div>
+                  <div className="story-step"><strong>Add a shape</strong><div>{["🔵","🟡","🟣","🟢","🔺","⭐","🟠"].map((item, index) => <button className="story-choice" key={index} onClick={() => setPatternItems(items => [...items, item])}>{item}</button>)}</div></div>
+                  <button className="reset-world" onClick={() => setPatternItems([])}><RotateCcw size={14}/> Start a new pattern</button>
+                </div>
+              ) : (
+                <div className="world-board-wrap">
+                  <div className="world-board-header"><div><strong>{activeActivity === "garden" ? "🌼 The sunny garden" : "🌊 The blue place"}</strong><span>A shared creation · demo mode</span></div><div className="contributor-switch"><button className={participant === "You" ? "active" : ""} onClick={() => setParticipant("You")}>🌻 You</button><button className={participant === "Friend" ? "active" : ""} onClick={() => setParticipant("Friend")}>🦊 Friend</button></div></div>
+                  <div className={activeActivity === "garden" ? "world-board garden-board" : "world-board"} aria-label={activeActivity === "garden" ? "Garden creative board" : "Underwater world creative board"}>
+                    <div className="board-sun">☀️</div><div className="board-seaweed seaweed-one">{activeActivity === "garden" ? "🌷" : "🌿"}</div><div className="board-seaweed seaweed-two">{activeActivity === "garden" ? "🌻" : "🌱"}</div>
+                    {worldItems.map(item => <button className="world-sticker" key={item.id} style={{ transform: "rotate(" + item.tilt + "deg)" }} onClick={() => setWorldItems(current => current.filter(entry => entry.id !== item.id))} aria-label={"Remove " + item.label + " added by " + item.by} title={"Remove " + item.label}><span>{item.emoji}</span><small>{item.by} · remove</small></button>)}
+                    <div className="board-caption">A place made together</div>
+                  </div>
+                  <div className="object-picker"><div><strong>{activeActivity === "garden" ? "Add something to our garden" : "Add something to our world"}</strong><span>Choose an object. You can take turns or add something later.</span></div><div className="object-grid">{availableObjects.map(item => <button key={item.id} onClick={() => addObject(item)}><span>{item.emoji}</span><small>{item.label}</small><Plus size={13}/></button>)}</div></div>
+                  <div className="collab-note"><Users size={17}/><span><strong>Two ways to take part.</strong> Switch between the two demo contributors to explore turn-taking. This prototype keeps the board on this device; it does not connect real children or sync across devices.</span></div>
+                  <button className="reset-world" onClick={() => setWorldItems([])}><RotateCcw size={14}/> Clear this creation</button>
+                </div>
+              )}
             </>
           )}
-
           {activeTab === "preferences" && (
             <>
               <div className="welcome-row"><div><div className="eyebrow-small">YOUR CHOICES, YOURS TO CHANGE</div><h1>What feels good to you?</h1><p>These choices help Autween make suggestions. They are never a score.</p></div><div className="welcome-sun">🌈</div></div>
