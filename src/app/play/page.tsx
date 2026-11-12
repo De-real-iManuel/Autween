@@ -6,10 +6,10 @@ import { ArrowRight, Check, Heart, Leaf, Moon, Plus, RotateCcw, Sparkles, Sun, U
 import { explainActivity, rankActivities, type Activity, type Interest, type ParticipationMode, type Preferences } from "@/lib/adaptive-engine";
 
 const activities: Activity[] = [
-  { id: "world", title: "Build an underwater world", description: "Place sea creatures, plants and curious objects. Make a place that belongs to you.", emoji: "🪸", category: "building", modes: ["visual", "symbols", "text"], sensory: "gentle", minutes: "Take your time" },
-  { id: "story", title: "Make a tiny story", description: "Choose a character, a place and what happens next. There is no wrong ending.", emoji: "📖", category: "stories", modes: ["visual", "symbols", "text", "audio"], sensory: "gentle", minutes: "A few little steps" },
-  { id: "patterns", title: "Play with patterns", description: "Arrange shapes, colours and repeating patterns until they feel just right.", emoji: "🧩", category: "puzzles", modes: ["visual", "symbols"], sensory: "quiet", minutes: "No timer" },
-  { id: "garden", title: "Grow a little garden", description: "Choose plants, arrange a garden and see what you can create.", emoji: "🌱", category: "nature", modes: ["visual", "symbols", "text"], sensory: "quiet", minutes: "At your pace" },
+  { id: "world", title: "Build an underwater world", description: "Place sea creatures, plants and curious objects. Make a place that belongs to you.", emoji: "🪸", category: "building", modes: ["visual", "symbols", "text"], sensory: "gentle", minutes: "Take your time", safety: "approved" },
+  { id: "story", title: "Make a tiny story", description: "Choose a character, a place and what happens next. There is no wrong ending.", emoji: "📖", category: "stories", modes: ["visual", "symbols", "text", "audio"], sensory: "gentle", minutes: "A few little steps", safety: "approved" },
+  { id: "patterns", title: "Play with patterns", description: "Arrange shapes, colours and repeating patterns until they feel just right.", emoji: "🧩", category: "puzzles", modes: ["visual", "symbols"], sensory: "quiet", minutes: "No timer", safety: "approved" },
+  { id: "garden", title: "Grow a little garden", description: "Choose plants, arrange a garden and see what you can create.", emoji: "🌱", category: "nature", modes: ["visual", "symbols", "text"], sensory: "quiet", minutes: "At your pace", safety: "approved" },
 ];
 
 const interestOptions: { id: Interest; label: string; emoji: string }[] = [
