@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Check, CircleHelp, Heart, Leaf, Moon, Plus, RotateCcw, Sparkles, Sun, VolumeX, Users, X } from "lucide-react";
+import { ArrowRight, Check, Heart, Leaf, Moon, Plus, RotateCcw, Sparkles, Sun, Users, X } from "lucide-react";
 import { explainActivity, rankActivities, type Activity, type Interest, type ParticipationMode, type Preferences } from "@/lib/adaptive-engine";
 
 const activities: Activity[] = [
@@ -110,7 +110,7 @@ export default function PlayPage() {
             <>
               <div className="welcome-row"><div><div className="eyebrow-small">A PLACE TO PLAY YOUR WAY</div><h1>What would you like to make?</h1><p>There is no rush. Pick something, or just explore.</p></div><div className="welcome-sun">☀️</div></div>
               <div className="recommend-heading"><div><h2>A few ideas for you</h2><span>{preferences.personalization ? "Based on the choices you made" : "A mix of activities, without personalisation"}</span></div><button className="text-control" onClick={() => setActiveTab("preferences")}>Change my choices <ArrowRight size={15}/></button></div>
-              <div className="activity-grid">{ranked.map((activity, index) => (
+              <div className="activity-grid">{ranked.map((activity) => (
                 <article className={"activity-card activity-" + activity.category} key={activity.id}>
                   <div className="activity-card-top"><span className="activity-emoji">{activity.emoji}</span><span className="activity-time">{activity.minutes}</span></div>
                   <h3>{activity.title}</h3><p>{activity.description}</p>
