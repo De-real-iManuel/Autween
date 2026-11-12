@@ -1,6 +1,6 @@
 # Autween — Initial Architecture
 
-**Status:** Proposal for review; not an implementation commitment.
+**Status:** Initial prototype architecture. The `/play` experience and deterministic preference ranking are now implemented; authentication, network collaboration and production safeguarding remain deferred.
 
 ## Architecture goals
 
@@ -11,11 +11,11 @@
 - Keep the client usable with keyboard, touch, switch-style navigation, and reduced sensory stimulation.
 - Avoid dependence on paid AI APIs or large hosted models.
 
-## Proposed first prototype
+## Current prototype
 
-A lightweight responsive web application is the preferred first implementation. It reduces setup friction, works on phones and ordinary computers, and avoids requiring a mobile build toolchain. A local-first data model can use browser storage for the synthetic demo. A server and real accounts should be deferred until the threat model and safeguarding model are reviewed.
+The prototype is a lightweight responsive Next.js application. The `/play` route uses fictional content and in-memory preferences; no account, backend, cross-device synchronization or real child profile is present. A server and real accounts remain deferred until the threat model and safeguarding model are reviewed.
 
-### Logical components
+### Logical components and implementation status
 
 1. **Experience client**
    - activity discovery and shared-world interface;
