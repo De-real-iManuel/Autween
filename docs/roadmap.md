@@ -20,7 +20,7 @@ We are not optimizing for time spent in the app, number of messages, speech, eye
 - [x] Local interactive world, garden, story and pattern activities.
 - [x] Honest same-device collaboration label.
 - [x] CI for typecheck, lint and production build.
-- [ ] Unit tests for ranking, eligibility, explanations and preference boundaries.
+- [x] Unit tests for ranking, eligibility, explanations and preference boundaries.\n- [x] Participation Contract Verification documented as executable software invariants.
 - [ ] Keyboard-only and screen-reader walkthrough.
 - [ ] Reduced-motion and high-contrast audit.
 - [ ] Mobile layout review at narrow viewport sizes.
