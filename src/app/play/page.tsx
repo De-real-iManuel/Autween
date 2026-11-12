@@ -68,9 +68,14 @@ export default function PlayPage() {
   const toggleMode = (mode: ParticipationMode) => setPreferences(p => ({
     ...p, modes: p.modes.includes(mode) ? p.modes.filter(x => x !== mode) : [...p.modes, mode],
   }));
-  const addObject = (item: typeof objects[number]) => setWorldItems(current => [
-    ...current, { id: Date.now(), emoji: item.emoji, label: item.label, by: participant, tilt: (current.length % 5 - 2) * 3 },
+  const addObject = (item: { id: string; label: string; emoji: string }) => setWorldItems(current => [
+    ...current, { id: Date.now() + current.length, emoji: item.emoji, label: item.label, by: participant, tilt: (current.length % 5 - 2) * 3 },
   ]);
+  const openActivity = (activity: Activity) => {
+    setActiveActivity(activity.id);
+    setActiveTab("create");
+    setWorldItems(activity.id === "garden" ? [{ id: 11, emoji: "🌼", label: "Flower", by: "You", tilt: -4 }, { id: 12, emoji: "🌳", label: "Tree", by: "Friend", tilt: 3 }] : [{ id: 1, emoji: "🪸", label: "Coral", by: "You", tilt: -5 }, { id: 2, emoji: "🐠", label: "Fish", by: "Friend", tilt: 4 }, { id: 3, emoji: "🌿", label: "Sea plant", by: "You", tilt: 2 }]);
+  };
 
   return (
     <main className={calm || preferences.sensory === "quiet" ? "play-app low-stimulation" : "play-app"}>
