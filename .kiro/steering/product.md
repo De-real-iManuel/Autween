@@ -1,6 +1,6 @@
 # Autween Product Steering
 
-## Mission
+## Governing principle\n\nA digital environment must adapt to the person participating; the person must not have to translate themselves to satisfy the environment. See [the Participation Contract](../../docs/principles.md) for the engineering tests and non-negotiable invariants.\n\n## Mission
 Build an adaptive social play and expression platform that lets autistic children connect, create, and participate on their own terms.
 
 ## Non-negotiable principles
