@@ -24,8 +24,8 @@ The prototype is a lightweight responsive Next.js application. The `/play` route
    - visible stop, leave, block, and help actions.
 
 2. **Preference model**
-   - stores explicit user-selected preferences;
-   - records only minimal interaction events needed for adaptation;
+   - currently holds explicit user-selected preferences in page memory;
+   - does not persist child preferences or record background interaction events;
    - represents uncertainty rather than treating a guess as fact;
    - supports inspect, edit, pause, and reset.
 
