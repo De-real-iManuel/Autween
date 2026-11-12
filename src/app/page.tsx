@@ -35,7 +35,7 @@ export default function HomePage() {
         </button>
         <nav className="nav-links" aria-label="Main navigation">
           <a href="#how-it-works">How it works</a>
-          <a href="#our-promise">Our promise</a>
+          <a href="/approach">Our approach</a>
         </nav>
         <div className="nav-actions">
           <button className="text-button" onClick={() => { setScreen("signin"); setSubmitted(false); }}>Log in</button>
