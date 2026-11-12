@@ -4,19 +4,13 @@ import { useState } from "react";
 import {
   ArrowRight,
   ArrowUpRight,
-  BookOpen,
   Check,
-  ChevronDown,
   Heart,
   Leaf,
   LockKeyhole,
   Palette,
-  Puzzle,
   ShieldCheck,
-  Sparkles,
-  Star,
   Users,
-  WandSparkles,
 } from "lucide-react";
 
 type Screen = "home" | "signup" | "signin";
