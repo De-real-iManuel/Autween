@@ -48,18 +48,6 @@ export default function PlayPage() {
   const [feedback, setFeedback] = useState<Record<string, "again" | "later">>({});
   const [calm, setCalm] = useState(false);
 
-  useEffect(() => {
-    try {
-      const saved = window.localStorage.getItem("autween-demo-preferences");
-      if (saved) setPreferences({ ...defaultPreferences, ...JSON.parse(saved) });
-    } catch { /* Keep safe demo defaults if local storage is unavailable. */ }
-  }, []);
-
-  useEffect(() => {
-    try { window.localStorage.setItem("autween-demo-preferences", JSON.stringify(preferences)); }
-    catch { /* The experience still works without persistence. */ }
-  }, [preferences]);
-
   const ranked = useMemo(() => rankActivities(activities, preferences, feedback), [preferences, feedback]);
   const toggleInterest = (interest: Interest) => setPreferences(p => ({
     ...p, interests: p.interests.includes(interest) ? p.interests.filter(x => x !== interest) : [...p.interests, interest],
