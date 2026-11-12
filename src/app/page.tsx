@@ -48,8 +48,8 @@ export default function HomePage() {
           <section className="hero wrap">
             <div className="hero-copy">
               <div className="eyebrow"><span className="eyebrow-dot" /> A little more room to be you</div>
-              <h1>Big worlds.<br /><span>Little steps.</span><br />Your kind of fun.</h1>
-              <p className="hero-text">A friendly place to make things, explore ideas and find your people. No pressure to be a certain way. Just room to be yourself.</p>
+              <h1>A world<br /><span>that makes room</span><br />for you.</h1>
+              <p className="hero-text">You should not have to change how you communicate to join in. Choose pictures, symbols, words or optional audio. Autween shapes the experience around the choices you make.</p>
               <div className="hero-actions">
                 <Link className="primary-button" href="/play">Try Autween <ArrowRight size={18} /></Link>
                 <button className="secondary-button" onClick={() => document.getElementById("how-it-works")?.scrollIntoView({ behavior: "smooth" })}>Take a little tour</button>
