@@ -24,3 +24,24 @@ Build an adaptive social play and expression platform that lets autistic childre
 
 ## Language
 Use respectful, non-deficit language. Avoid describing autistic communication as broken, deficient, or something to normalize. Avoid claiming that all autistic children share the same preferences.
+
+## Signature experience
+
+The signature experience is collaborative creation without compulsory conversation. A child can contribute to a shared-interest world through pictures, symbols, text, or optional audio, at a self-chosen pace. The environment must not require speech, rapid responses, eye contact, or a prescribed social style.
+
+## Explainable adaptation
+
+- Start with deterministic rules based on explicit, child-selected preferences.
+- Explain every personalized suggestion in plain language.
+- Let the child edit, pause, and reset preferences.
+- Treat skipped activities as missing information, not evidence of dislike.
+- Do not use emotion recognition, diagnosis inference, or behavioural scoring.
+- Filter activities through explicit safety eligibility before ranking.
+- Never describe a recommendation score as a score of the child.
+
+## Prototype honesty
+
+- Use fictional data only.
+- Label same-device collaboration as a demonstration, not live multiplayer.
+- Do not imply that account creation, guardian verification, moderation, or child-to-child networking is implemented when it is not.
+- Do not claim clinical or therapeutic efficacy.
