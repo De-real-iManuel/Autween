@@ -12,12 +12,12 @@
 - `/`: public introduction and product principles
 - `/signup`: parent/guardian account creation (to be wired to a secure auth provider)
 - `/login`: parent/guardian login
-- `/home`: child-facing experience, accessible only after guardian-controlled account setup in a production release
+- `/play`: interactive synthetic-data prototype; no authentication or networked child accounts\n- `/home`: reserved for a future guardian-controlled production experience
 
 ## Experience
 The public home page explains Autween in plain, warm language. It should not describe children as broken or in need of fixing. Avoid medicalized illustrations and infantilizing copy.
 
-The first signed-in experience should let the child:
+The `/play` prototype currently lets a child (using fictional demo data):
 - choose interests and communication preferences;
 - choose solo, alongside, or collaborative activity;
 - adjust sensory presentation and pace;
