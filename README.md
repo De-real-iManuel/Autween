@@ -38,7 +38,7 @@ The shared-world experience is a local interaction prototype. The contributor sw
 
 The first preference engine is deterministic by design. It filters for activities explicitly marked as eligible, then ranks eligible activities using only preferences the user selected. It can explain why an activity was suggested. When personalization is paused, the activities are shown without preference-based ranking.
 
-No paid AI API or hosted model is required. Read [the Participation Contract](docs/principles.md), [the roadmap](docs/roadmap.md), [the adaptive engine design](docs/adaptive-engine.md), and [the architecture](docs/architecture.md).
+No paid AI API or hosted model is required. Read [the Participation Contract](docs/principles.md), [the roadmap](docs/roadmap.md), [Participation Contract Verification](docs/participation-contract-verification.md), [the adaptive engine design](docs/adaptive-engine.md), and [the architecture](docs/architecture.md).
 
 ## Development checks
 
