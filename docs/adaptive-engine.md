@@ -42,7 +42,7 @@ Each card names the selected preferences that explain its suggestion. If no sele
 - Personalization can be switched off.
 - Not choosing an activity is not interpreted as dislike.
 - Feedback is optional and reversible.
-- The current demo stores preference choices in this browser's local storage only.
+- The current demo keeps preference choices in memory for the current visit only; refreshing the page resets them.
 - The demo uses a fictional profile and must not be used with real child information.
 
 ## Future evaluation
