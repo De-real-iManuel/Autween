@@ -90,7 +90,7 @@ export default function PlayPage() {
 
       <div className="play-layout">
         <aside className="play-sidebar">
-          <div className="profile-mini"><div className="profile-avatar">🌻</div><div><strong>Sunny's space</strong><span>Just for this demo</span></div></div>
+          <div className="profile-mini"><div className="profile-avatar">🌻</div><div><strong>Sunny&apos;s space</strong><span>Just for this demo</span></div></div>
           <div className="side-label">YOUR SPACE</div>
           <button className={activeTab === "discover" ? "side-link active" : "side-link"} onClick={() => setActiveTab("discover")}><Sparkles size={17}/> Discover</button>
           <button className={activeTab === "create" ? "side-link active" : "side-link"} onClick={() => setActiveTab("create")}><Heart size={17}/> My world</button>
@@ -133,7 +133,7 @@ export default function PlayPage() {
               <div className="welcome-row"><div><div className="eyebrow-small">YOUR CREATIVE SPACE</div><h1>{currentActivity.id === "garden" ? "Our little garden" : currentActivity.id === "story" ? "A story of our own" : currentActivity.id === "patterns" ? "Patterns we can play with" : "Our underwater world"}</h1><p>Every little piece makes it more yours.</p></div><div className="world-count">{activeActivity === "story" ? "✍️" : activeActivity === "patterns" ? patternItems.length : worldItems.length}<span>{activeActivity === "story" ? "your story" : activeActivity === "patterns" ? "shapes" : "little things"}</span></div></div>
               {activeActivity === "story" ? (
                 <div className="creative-panel">
-                  <div className="creative-panel-intro"><span>📖</span><div><strong>Let's make a tiny story</strong><p>Choose pictures to shape a story. You can change every choice.</p></div></div>
+                  <div className="creative-panel-intro"><span>📖</span><div><strong>Let&apos;s make a tiny story</strong><p>Choose pictures to shape a story. You can change every choice.</p></div></div>
                   <div className="story-step"><strong>Who is in your story?</strong><div>{["🦊","🐢","🐰","🐉","🐠"].map(item => <button className={storyCharacter === item ? "story-choice active" : "story-choice"} key={item} onClick={() => setStoryCharacter(item)}>{item}</button>)}</div></div>
                   <div className="story-step"><strong>Where will they go?</strong><div>{["🌳","🏝️","🚀","🏰","🌊"].map(item => <button className={storyPlace === item ? "story-choice active" : "story-choice"} key={item} onClick={() => setStoryPlace(item)}>{item}</button>)}</div></div>
                   <div className="story-step"><strong>What happens next?</strong><div>{["✨","🎁","🌈","🎵","🗝️"].map(item => <button className={storyEvent === item ? "story-choice active" : "story-choice"} key={item} onClick={() => setStoryEvent(item)}>{item}</button>)}</div></div>
