@@ -16,6 +16,7 @@ export type Activity = {
   modes: ParticipationMode[];
   sensory: "gentle" | "quiet";
   minutes: string;
+  safety: "approved" | "blocked";
 };
 export type Feedback = Record<string, "again" | "later">;
 
@@ -25,8 +26,7 @@ export type Feedback = Record<string, "again" | "later">;
  * inference is performed. Safety eligibility is checked before ranking.
  */
 export function isEligible(activity: Activity, preferences: Preferences): boolean {
-  if (!activity.id || !activity.modes.length) return false;
-  return true;
+  return Boolean(activity.id) && activity.modes.length > 0 && activity.safety === "approved";
 }
 
 export function scoreActivity(activity: Activity, preferences: Preferences, feedback: Feedback = {}): number {
