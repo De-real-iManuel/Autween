@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";\nimport Link from "next/link";
+import { useState } from "react";
+import Link from "next/link";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -14,29 +15,11 @@ import {
 } from "lucide-react";
 
 type Screen = "home" | "signup" | "signin";
-type Interest = "stories" | "art" | "building" | "puzzles" | "nature" | "animals";
-
-const interests: { id: Interest; label: string; icon: string; color: string }[] = [
-  { id: "stories", label: "Stories & imagination", icon: "📚", color: "lilac" },
-  { id: "art", label: "Art & making things", icon: "🎨", color: "peach" },
-  { id: "building", label: "Building & creating", icon: "🧱", color: "yellow" },
-  { id: "puzzles", label: "Puzzles & patterns", icon: "🧩", color: "mint" },
-  { id: "nature", label: "Nature & little worlds", icon: "🌱", color: "sky" },
-  { id: "animals", label: "Animals & creatures", icon: "🦊", color: "rose" },
-];
-
 export default function HomePage() {
   const [screen, setScreen] = useState<Screen>("home");
-  const [selected, setSelected] = useState<Interest[]>(["stories", "art"]);
   const [showPassword, setShowPassword] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [calm, setCalm] = useState(false);
-
-  function toggleInterest(id: Interest) {
-    setSelected((current) =>
-      current.includes(id) ? current.filter((item) => item !== id) : [...current, id],
-    );
-  }
 
   function handleAccountSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
