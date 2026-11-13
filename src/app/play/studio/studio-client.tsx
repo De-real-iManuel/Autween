@@ -5,8 +5,8 @@ import { ArrowLeft, BookOpen, Check, Download, FileText, Layers, Lightbulb, Rota
 import { ageBands, getAgeExperience, type AgeBand, type StudioFormat } from "@/lib/age-experience";
 type Draft = { title:string; format:StudioFormat; content:string; updatedAt:string };
 const storageKey="autween-studio-draft-v1";
-export default function CreativeStudioPage(){
- const [ageBand,setAgeBand]=useState<AgeBand>("13-15");
+export default function CreativeStudioPage({ initialAgeBand }: { initialAgeBand: AgeBand }){
+ const [ageBand,setAgeBand]=useState<AgeBand>(initialAgeBand);
  const [format,setFormat]=useState<StudioFormat>("visual-journal");
  const [title,setTitle]=useState("Untitled project");
  const [content,setContent]=useState("");
