@@ -93,22 +93,20 @@ export default function HomePage() {
           </div>
           <div className="auth-main">
             <div className="auth-card">
-              <>
-                  <div className="eyebrow">{screen === "signup" ? "A new adventure" : "Lovely to see you again"}</div>
-                  <h1>{screen === "signup" ? "Let’s get started." : "Welcome back."}</h1>
-                  <p className="auth-intro">{screen === "signup" ? "A parent or trusted grown-up can create a family account to get things ready." : "Sign in to your family space."}</p>
-                  <div className="auth-switch"><button className={screen === "signup" ? "active" : ""} onClick={() => setScreen("signup")}>Create account</button><button className={screen === "signin" ? "active" : ""} onClick={() => setScreen("signin")}>Log in</button></div>
-                  <form action={authenticate}>\n                    <input type="hidden" name="intent" value={screen} />
-                    {screen === "signup" && <label className="field-label">Grown-up’s name<input required name="guardianName" autoComplete="name" placeholder="Your name" /></label>}
-                    <label className="field-label">Email address<input required name="email" type="email" autoComplete="email" placeholder="you@example.com" /></label>
-                    <label className="field-label">Password<span className="password-wrap"><input required name="password" type={showPassword ? "text" : "password"} minLength={screen === "signup" ? 8 : 1} autoComplete={screen === "signup" ? "new-password" : "current-password"} placeholder="At least 8 characters" /><button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? "Hide" : "Show"}</button></span></label>
-                    {screen === "signup" && <label className="consent-line"><input required name="guardianConsent" type="checkbox" /> <span>I’m a parent or legal guardian, and I agree to the <a href="#our-promise">privacy-first approach</a>.</span></label>}
-                    <button className="primary-button full" type="submit">{screen === "signup" ? "Create family account" : "Log in"} <ArrowRight size={18} /></button>
-                  </form>
-                  <div className="auth-safety"><LockKeyhole size={16} /><span>We’ll never ask a child to create a public profile or share personal details to join.</span></div>
-                  <p className="switch-prompt">{screen === "signup" ? "Already have a family account?" : "New to Autween?"} <button onClick={() => setScreen(screen === "signup" ? "signin" : "signup")}>{screen === "signup" ? "Log in" : "Create an account"}</button></p>
-                </>
-              )}
+              <div className="eyebrow">{screen === "signup" ? "A new adventure" : "Lovely to see you again"}</div>
+              <h1>{screen === "signup" ? "Let’s get started." : "Welcome back."}</h1>
+              <p className="auth-intro">{screen === "signup" ? "A parent or trusted grown-up can create a family account to get things ready." : "Sign in to your family space."}</p>
+              <div className="auth-switch"><button className={screen === "signup" ? "active" : ""} onClick={() => setScreen("signup")}>Create account</button><button className={screen === "signin" ? "active" : ""} onClick={() => setScreen("signin")}>Log in</button></div>
+              <form action={authenticate}>
+                <input type="hidden" name="intent" value={screen} />
+                {screen === "signup" && <label className="field-label">Grown-up’s name<input required name="guardianName" autoComplete="name" placeholder="Your name" /></label>}
+                <label className="field-label">Email address<input required name="email" type="email" autoComplete="email" placeholder="you@example.com" /></label>
+                <label className="field-label">Password<span className="password-wrap"><input required name="password" type={showPassword ? "text" : "password"} minLength={screen === "signup" ? 8 : 1} autoComplete={screen === "signup" ? "new-password" : "current-password"} placeholder="At least 8 characters" /><button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? "Hide" : "Show"}</button></span></label>
+                {screen === "signup" && <label className="consent-line"><input required name="guardianConsent" type="checkbox" /> <span>I’m a parent or legal guardian, and I agree to the <a href="#our-promise">privacy-first approach</a>.</span></label>}
+                <button className="primary-button full" type="submit">{screen === "signup" ? "Create family account" : "Log in"} <ArrowRight size={18} /></button>
+              </form>
+              <div className="auth-safety"><LockKeyhole size={16} /><span>We’ll never ask a child to create a public profile or share personal details to join.</span></div>
+              <p className="switch-prompt">{screen === "signup" ? "Already have a family account?" : "New to Autween?"} <button onClick={() => setScreen(screen === "signup" ? "signin" : "signup")}>{screen === "signup" ? "Log in" : "Create an account"}</button></p>
             </div>
           </div>
         </section>
