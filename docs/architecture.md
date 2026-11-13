@@ -1,6 +1,6 @@
 # Autween — Initial Architecture
 
-**Status:** Initial prototype architecture. The `/play` experience and deterministic preference ranking are now implemented; authentication, network collaboration and production safeguarding remain deferred.
+**Status:** Initial prototype architecture. The `/play` experience and deterministic preference ranking are now implemented; guardian authentication and private participant profiles now have a Supabase-backed development foundation; network collaboration and production safeguarding remain deferred.
 
 ## Architecture goals
 
@@ -13,7 +13,7 @@
 
 ## Current prototype
 
-The prototype is a lightweight responsive Next.js application. The `/play` route uses fictional content and in-memory preferences; no account, backend, cross-device synchronization or real child profile is present. A server and real accounts remain deferred until the threat model and safeguarding model are reviewed.
+The prototype is a lightweight responsive Next.js application. The `/play` route still uses fictional content and in-memory preferences. Guardian authentication is implemented through Supabase Auth, and private participant age-band profiles are stored in Postgres under row-level security. Cross-device creative-work synchronization and real child-to-child networking remain deferred until the threat model and safeguarding model are reviewed.
 
 ### Logical components and implementation status
 
@@ -85,7 +85,7 @@ Only after the data model and safeguards are validated, evaluate a contextual ba
 
 ## Deferred decisions
 
-- Authentication and account recovery.
+- Account recovery and guardian email verification operations.
 - Real-time multiplayer transport.
 - Database and hosting provider.
 - Guardian consent and child assent flows.
