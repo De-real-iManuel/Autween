@@ -19,7 +19,12 @@ type Screen = "home" | "signup" | "signin";
 export default function HomePage() {
   const [screen, setScreen] = useState<Screen>("home");
   const [showPassword, setShowPassword] = useState(false);
-  const [calm, setCalm] = useState(false);\n\n  useEffect(() => {\n    const requested = new URLSearchParams(window.location.search).get("screen");\n    if (requested === "signup" || requested === "signin") setScreen(requested);\n  }, []);
+  const [calm, setCalm] = useState(false);
+
+  useEffect(() => {
+    const requested = new URLSearchParams(window.location.search).get("screen");
+    if (requested === "signup" || requested === "signin") setScreen(requested);
+  }, []);
 
   return (
     <main className={calm ? "site calm" : "site"}>
