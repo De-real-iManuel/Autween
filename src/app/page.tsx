@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { authenticate } from "./actions/auth";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -18,18 +19,12 @@ type Screen = "home" | "signup" | "signin";
 export default function HomePage() {
   const [screen, setScreen] = useState<Screen>("home");
   const [showPassword, setShowPassword] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
   const [calm, setCalm] = useState(false);
-
-  function handleAccountSubmit(event: React.FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-    setSubmitted(true);
-  }
 
   return (
     <main className={calm ? "site calm" : "site"}>
       <header className="nav wrap">
-        <button className="wordmark" onClick={() => { setScreen("home"); setSubmitted(false); }} aria-label="Autween home">
+        <button className="wordmark" onClick={() => { setScreen("home"); }} aria-label="Autween home">
           <span className="logo-symbol"><span /></span>
           <span>autween</span>
         </button>
@@ -38,7 +33,7 @@ export default function HomePage() {
           <a href="/approach">Our approach</a>
         </nav>
         <div className="nav-actions">
-          <button className="text-button" onClick={() => { setScreen("signin"); setSubmitted(false); }}>Log in</button>
+          <button className="text-button" onClick={() => { setScreen("signin"); }}>Log in</button>
           <Link className="nav-cta" href="/play">Try the demo <ArrowUpRight size={16} /></Link>
         </div>
       </header>
@@ -93,24 +88,21 @@ export default function HomePage() {
       ) : (
         <section className="auth-shell">
           <div className="auth-aside">
-            <button className="back-link" onClick={() => { setScreen("home"); setSubmitted(false); }}>← Back to Autween</button>
+            <button className="back-link" onClick={() => { setScreen("home"); }}>← Back to Autween</button>
             <div className="auth-art"><div className="auth-sun">✳</div><div className="auth-planet">☾</div><div className="auth-art-title">Your next<br />little adventure<br /><em>starts here.</em></div><div className="auth-art-bottom">A place to play, make and belong.</div></div>
           </div>
           <div className="auth-main">
             <div className="auth-card">
-              {submitted ? (
-                <div className="success-state"><div className="success-icon"><Check size={30} /></div><div className="eyebrow">You’re on your way</div><h1>{screen === "signup" ? "Thanks for stopping by." : "Welcome back."}</h1><p>This account flow is currently a front-end preview. Secure account creation and guardian verification will be connected before real families can use Autween.</p><button className="primary-button full" onClick={() => { setScreen("home"); setSubmitted(false); }}>Back to the welcome page <ArrowRight size={18} /></button></div>
-              ) : (
-                <>
+              <>
                   <div className="eyebrow">{screen === "signup" ? "A new adventure" : "Lovely to see you again"}</div>
                   <h1>{screen === "signup" ? "Let’s get started." : "Welcome back."}</h1>
                   <p className="auth-intro">{screen === "signup" ? "A parent or trusted grown-up can create a family account to get things ready." : "Sign in to your family space."}</p>
                   <div className="auth-switch"><button className={screen === "signup" ? "active" : ""} onClick={() => setScreen("signup")}>Create account</button><button className={screen === "signin" ? "active" : ""} onClick={() => setScreen("signin")}>Log in</button></div>
-                  <form onSubmit={handleAccountSubmit}>
-                    {screen === "signup" && <label className="field-label">Grown-up’s name<input required autoComplete="name" placeholder="Your name" /></label>}
-                    <label className="field-label">Email address<input required type="email" autoComplete="email" placeholder="you@example.com" /></label>
-                    <label className="field-label">Password<span className="password-wrap"><input required type={showPassword ? "text" : "password"} minLength={8} autoComplete={screen === "signup" ? "new-password" : "current-password"} placeholder="At least 8 characters" /><button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? "Hide" : "Show"}</button></span></label>
-                    {screen === "signup" && <label className="consent-line"><input required type="checkbox" /> <span>I’m a parent or legal guardian, and I agree to the <a href="#our-promise">privacy-first approach</a>.</span></label>}
+                  <form action={authenticate}>\n                    <input type="hidden" name="intent" value={screen} />
+                    {screen === "signup" && <label className="field-label">Grown-up’s name<input required name="guardianName" autoComplete="name" placeholder="Your name" /></label>}
+                    <label className="field-label">Email address<input required name="email" type="email" autoComplete="email" placeholder="you@example.com" /></label>
+                    <label className="field-label">Password<span className="password-wrap"><input required name="password" type={showPassword ? "text" : "password"} minLength={screen === "signup" ? 8 : 1} autoComplete={screen === "signup" ? "new-password" : "current-password"} placeholder="At least 8 characters" /><button type="button" onClick={() => setShowPassword(!showPassword)}>{showPassword ? "Hide" : "Show"}</button></span></label>
+                    {screen === "signup" && <label className="consent-line"><input required name="guardianConsent" type="checkbox" /> <span>I’m a parent or legal guardian, and I agree to the <a href="#our-promise">privacy-first approach</a>.</span></label>}
                     <button className="primary-button full" type="submit">{screen === "signup" ? "Create family account" : "Log in"} <ArrowRight size={18} /></button>
                   </form>
                   <div className="auth-safety"><LockKeyhole size={16} /><span>We’ll never ask a child to create a public profile or share personal details to join.</span></div>
