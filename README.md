@@ -40,6 +40,10 @@ The first preference engine is deterministic by design. It filters for activitie
 
 No paid AI API or hosted model is required. Read [the Participation Contract](docs/principles.md), [the roadmap](docs/roadmap.md), [Participation Contract Verification](docs/participation-contract-verification.md), [the adaptive engine design](docs/adaptive-engine.md), and [the architecture](docs/architecture.md).
 
+## Accounts and backend
+
+The guardian account and private participant-profile foundation uses Supabase. Follow [the backend setup guide](docs/backend-setup.md) and apply the SQL migration in `supabase/migrations/` before enabling live accounts. Do not use real child data until the safeguarding release gates are complete.
+
 ## Development checks
 
 ```bash
