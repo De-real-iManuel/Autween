@@ -15,7 +15,7 @@ export default function ApproachPage() {
       <section className="approach-hero">
         <div className="approach-kicker"><Sparkles size={15}/> THE IDEA BEHIND AUTWEEN</div>
         <h1>The environment<br/><span>should do the adapting.</span></h1>
-        <p>Digital spaces often expect everyone to communicate, respond and participate in the same way. Autween starts from a different assumption: people should be able to take part without first translating themselves into the system's preferred format.</p>
+        <p>Digital spaces often expect everyone to communicate, respond and participate in the same way. Autween starts from a different assumption: people should be able to take part without first translating themselves into the system&apos;s preferred format.</p>
       </section>
       <section className="approach-principles">
         {principles.map(item => <article className="approach-card" key={item.n}><span>{item.n}</span><div><h2>{item.title}</h2><p>{item.body}</p></div><CheckCircle2 size={20}/></article>)}
