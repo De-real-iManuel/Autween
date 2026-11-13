@@ -6,8 +6,7 @@ import { createParticipantProfile } from "./actions";
 
 export default async function Dashboard({ searchParams }: { searchParams: Promise<{ error?: string; created?: string }> }) {
   const params = await searchParams;
-  let supabase;
-  try { supabase = await createSupabaseServerClient(); } catch { redirect("/auth/message?kind=setup"); }
+  const supabase = await createSupabaseServerClient().catch(() => redirect("/auth/message?kind=setup"));
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/?screen=signin");
   const { data: profiles } = await supabase.from("participant_profiles").select("id,display_name,age_band,created_at").order("created_at", { ascending: true });
