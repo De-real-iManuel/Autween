@@ -33,3 +33,5 @@ create policy "Guardians can delete their own participant spaces"
 
 create index if not exists participant_profiles_guardian_id_idx
   on public.participant_profiles (guardian_id);
+
+grant select, insert, update, delete on public.participant_profiles to authenticated;
