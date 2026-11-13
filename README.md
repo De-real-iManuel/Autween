@@ -40,7 +40,7 @@ The first preference engine is deterministic by design. It filters for activitie
 
 No paid AI API or hosted model is required. Read [the Participation Contract](docs/principles.md), [the roadmap](docs/roadmap.md), [Participation Contract Verification](docs/participation-contract-verification.md), [the adaptive engine design](docs/adaptive-engine.md), and [the architecture](docs/architecture.md).
 
-## Age-aware creative studio
+## Flagship Halloween activity\n\nTry `/play/lantern` for **The Quiet Lantern Garden**, a short activity designed to demonstrate participant-directed adaptation. Participants choose symbols or words, adjust quiet colours, motion, contrast and visual density, and can pause, skip or reset. The interface explains which explicit choices affect the presentation. The activity uses no camera, microphone, timer or background upload. See the [two-minute demo script](docs/kiroween-demo.md).\n\nThis is a functional prototype, not a validated accessibility intervention. It has not yet undergone usability testing with autistic participants.\n\n## Age-aware creative studio
 
 Explore `/play/studio` for age-aware creative formats and optional local-only draft saving. See [the age-aware experience notes](docs/age-aware-experience.md). The studio is a prototype and has not yet been co-designed or validated with participants.
 
