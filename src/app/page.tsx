@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import { authenticate } from "./actions/auth";
 import {
@@ -19,7 +19,7 @@ type Screen = "home" | "signup" | "signin";
 export default function HomePage() {
   const [screen, setScreen] = useState<Screen>("home");
   const [showPassword, setShowPassword] = useState(false);
-  const [calm, setCalm] = useState(false);
+  const [calm, setCalm] = useState(false);\n\n  useEffect(() => {\n    const requested = new URLSearchParams(window.location.search).get("screen");\n    if (requested === "signup" || requested === "signin") setScreen(requested);\n  }, []);
 
   return (
     <main className={calm ? "site calm" : "site"}>
