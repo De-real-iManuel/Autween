@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { ArrowRight, Compass, Heart, Palette, ShieldCheck, Sparkles } from "lucide-react";
+import { ArrowRight, Heart, Palette, ShieldCheck, Sparkles } from "lucide-react";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { createParticipantProfile } from "./actions";
 
