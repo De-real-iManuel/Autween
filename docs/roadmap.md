@@ -29,7 +29,7 @@ We are not optimizing for time spent in the app, number of messages, speech, eye
 
 ## Milestone 1 — a real participation studio
 
-**Priority: next**
+**Status: in progress**\n\n- [x] Age-aware creative formats and prompts for four broad age bands.\n- [x] Distinct teen-oriented narrative, editorial, research-journal and concept-design entry points.\n- [x] Explicit local draft save, load, clear and Markdown export controls.\n- [ ] Freehand drawing canvas with touch/stylus and keyboard alternatives.\n- [ ] Multi-project library and cross-session project management.\n- [ ] Accessibility review with autistic participants and assistive-technology users.
 
 - Freehand drawing with mouse, touch and stylus.
 - Eraser, undo/redo, clear, and a small accessible tool palette.
