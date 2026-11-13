@@ -7,7 +7,8 @@ export async function GET(request: NextRequest) {
   const next = searchParams.get("next") ?? "/dashboard";
   if (!code) return NextResponse.redirect(new URL("/auth/message?kind=verification-error", origin));
 
-  const safeNext = next.startsWith("/") && !next.startsWith("//") && !next.includes("\\\\") ? next : "/dashboard";\n  const response = NextResponse.redirect(new URL(safeNext, origin));
+  const safeNext = next.startsWith("/") && !next.startsWith("//") && !next.includes("\\") ? next : "/dashboard";
+  const response = NextResponse.redirect(new URL(safeNext, origin));
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const key = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !key) return NextResponse.redirect(new URL("/auth/message?kind=setup", origin));
