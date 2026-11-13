@@ -104,7 +104,7 @@ export default function LanternClient({ initialAgeBand }: { initialAgeBand: AgeB
           <aside className="lantern-builder">
             <span className="lantern-builder-label">ADD TO YOUR SCENE</span>
             <p>{mode === "symbols" ? "Choose a symbol to add it." : "Choose an item by its written name."}</p>
-            <div className="lantern-piece-options">{pieces.map(piece => <button type="button" key={piece.id} onClick={() => addPiece(piece)}><span aria-hidden="true">{piece.symbol}</span><strong>{piece.label}</strong></button>)}</div>
+            <div className="lantern-piece-options">{pieces.map(piece => <button type="button" key={piece.id} onClick={() => addPiece(piece)}>{mode === "symbols" && <span aria-hidden="true">{piece.symbol}</span>}<strong>{piece.label}</strong></button>)}</div>
             <label className="lantern-note-label" htmlFor="garden-note">Optional words or idea</label>
             <textarea id="garden-note" value={note} onChange={event => setNote(event.target.value)} placeholder="You can describe your garden, or leave this empty." rows={4}/>
             <div className="lantern-explanation"><strong>Why does it look this way?</strong><p>{explanation}</p><button type="button" onClick={() => { setMode("symbols"); setQuiet(true); setReducedMotion(true); setContrast(false); setDensity("roomy"); setStatus("Your presentation choices have been reset to the quiet starting settings."); }}>Reset presentation choices</button></div>
