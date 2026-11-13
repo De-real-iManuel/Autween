@@ -114,7 +114,7 @@ export default function PlayPage() {
 
           {activeTab === "discover" && (
             <>
-              <div className="welcome-row"><div><div className="eyebrow-small">A PLACE TO PLAY YOUR WAY</div><h1>What would you like to make?</h1><p>There is no rush. Pick something, or just explore.</p><Link className="studio-entry-link" href="/play/studio">Open the creative studio <ArrowRight size={15}/></Link></div><div className="welcome-sun">☀️</div></div>
+              <div className="welcome-row"><div><div className="eyebrow-small">A PLACE TO PLAY YOUR WAY</div><h1>What would you like to make?</h1><p>There is no rush. Pick something, or just explore.</p><div className="studio-entry-links"><Link className="studio-entry-link" href="/play/lantern">Try the Quiet Lantern Garden <ArrowRight size={15}/></Link><Link className="studio-entry-link" href="/play/studio">Open the creative studio <ArrowRight size={15}/></Link></div></div><div className="welcome-sun">☀️</div></div>
               <div className="recommend-heading"><div><h2>A few ideas for you</h2><span>{preferences.personalization ? "Based on the choices you made" : "A mix of activities, without personalisation"}</span></div><button className="text-control" onClick={() => setActiveTab("preferences")}>Change my choices <ArrowRight size={15}/></button></div>
               <div className="activity-grid">{ranked.map((activity) => (
                 <article className={"activity-card activity-" + activity.category} key={activity.id}>
