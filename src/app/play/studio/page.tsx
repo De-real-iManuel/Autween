@@ -1,4 +1,4 @@
-import { StudioClient } from "./studio-client";
+import StudioClient from "./studio-client";
 import type { AgeBand } from "@/lib/age-experience";
 
 export default async function CreativeStudioPage({ searchParams }: { searchParams: Promise<{ age?: string }> }) {
