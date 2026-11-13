@@ -20,7 +20,8 @@ We are not optimizing for time spent in the app, number of messages, speech, eye
 - [x] Local interactive world, garden, story and pattern activities.
 - [x] Honest same-device collaboration label.
 - [x] CI for typecheck, lint and production build.
-- [x] Unit tests for ranking, eligibility, explanations and preference boundaries.\n- [x] Participation Contract Verification documented as executable software invariants.
+- [x] Unit tests for ranking, eligibility, explanations and preference boundaries.
+- [x] Participation Contract Verification documented as executable software invariants.
 - [ ] Keyboard-only and screen-reader walkthrough.
 - [ ] Reduced-motion and high-contrast audit.
 - [ ] Mobile layout review at narrow viewport sizes.
@@ -29,7 +30,14 @@ We are not optimizing for time spent in the app, number of messages, speech, eye
 
 ## Milestone 1 — a real participation studio
 
-**Status: in progress**\n\n- [x] Age-aware creative formats and prompts for four broad age bands.\n- [x] Distinct teen-oriented narrative, editorial, research-journal and concept-design entry points.\n- [x] Explicit local draft save, load, clear and Markdown export controls.\n- [ ] Freehand drawing canvas with touch/stylus and keyboard alternatives.\n- [ ] Multi-project library and cross-session project management.\n- [ ] Accessibility review with autistic participants and assistive-technology users.
+**Status: in progress**
+
+- [x] Age-aware creative formats and prompts for four broad age bands.
+- [x] Distinct teen-oriented narrative, editorial, research-journal and concept-design entry points.
+- [x] Explicit local draft save, load, clear and Markdown export controls.
+- [ ] Freehand drawing canvas with touch/stylus and keyboard alternatives.
+- [ ] Multi-project library and cross-session project management.
+- [ ] Accessibility review with autistic participants and assistive-technology users.
 
 - Freehand drawing with mouse, touch and stylus.
 - Eraser, undo/redo, clear, and a small accessible tool palette.
