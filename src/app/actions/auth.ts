@@ -30,7 +30,7 @@ export async function authenticate(formData: FormData) {
       redirect("/auth/message?kind=consent");
     }
     const requestHeaders = await headers();
-    const origin = requestHeaders.get("origin") ?? requestHeaders.get("referer")?.replace(/\/$/, "") ?? "";
+    const originHeader = requestHeaders.get("origin") ?? requestHeaders.get("referer") ?? "http://localhost:3000";\n    const origin = new URL(originHeader).origin;
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
