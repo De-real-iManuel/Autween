@@ -4,7 +4,7 @@ Autween offers four broad presentation bands: 6–9, 10–12, 13–15 and 16–1
 
 Each band changes the tone, introduction, available creative formats and starting prompts. Younger experiences use concrete imaginative entry points and larger, symbol-forward controls. Teen experiences use independent formats such as field notes, editorial zines, narrative workshops and concept design, with a quieter visual language. The user can switch the preview band in the studio; the selection is not used to infer ability or support needs.
 
-The studio offers symbol, word, and combined participation modes. Younger age-band previews start with symbols, while older previews start with words; participants can switch at any time. The starting idea can optionally be read aloud using the browser's local speech synthesis. Autween does not request microphone access or record audio. A quiet-presentation control is available, and each adaptation is visible and reversible.
+The studio offers symbol, word, and combined participation modes. Younger age-band previews start with symbols, while older previews start with words; participants can switch at any time. The starting idea can optionally be read aloud using the browser or device speech engine. Which engine is used, and whether it uses local or network processing, depends on the device and its settings. Autween does not request microphone access or record audio. A quiet-presentation control is available, and each adaptation is visible and reversible.
 
 Prompts are optional. Projects may remain unfinished. Users may change format or direction at any time. A blank project is a valid starting point. No timer, points, streaks, ranking or engagement score is used.
 

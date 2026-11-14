@@ -221,6 +221,9 @@ export default function CreativeStudioPage({
                 <button type="button" aria-pressed={participationMode === "words"} className={participationMode === "words" ? "selected" : ""} onClick={() => { setParticipationMode("words"); setSaved(false); }}>Words</button>
                 <button type="button" aria-pressed={participationMode === "both"} className={participationMode === "both" ? "selected" : ""} onClick={() => { setParticipationMode("both"); setSaved(false); }}>Both</button>
               </div>
+              <p className="studio-adaptation-note">
+                Current view: {ageBand} preview, {participationMode} participation, and {quietMode ? "quiet" : "standard"} presentation. These are your choices; nothing is inferred from how you use the studio.
+              </p>
             </div>
 
             <label className="studio-field-label">PROJECT TITLE<input value={title} onChange={event => { setTitle(event.target.value); setSaved(false); }} maxLength={80} /></label>
@@ -233,6 +236,7 @@ export default function CreativeStudioPage({
               <button type="button" onClick={readPrompt}><Volume2 size={15} /> Read idea aloud</button>
               <button type="button" onClick={stopReading}><VolumeX size={15} /> Stop audio</button>
             </div>
+            <p className="studio-audio-note">Read-aloud uses the voice available through your browser or device. Autween does not request microphone access or record audio.</p>
 
             {(participationMode === "symbols" || participationMode === "both") && (
               <section className="studio-symbol-section" aria-label="Symbol idea board">

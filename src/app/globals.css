@@ -197,3 +197,14 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #79a4
 .studio-actions button:disabled{opacity:.45;cursor:not-allowed}
 .studio-page button:focus-visible,.studio-page a:focus-visible,.studio-page input:focus-visible,.studio-page textarea:focus-visible{outline:3px solid #8cae92;outline-offset:3px}
 @media(max-width:520px){.studio-symbol-board{grid-template-columns:repeat(2,minmax(0,1fr))}.studio-participation>div{display:grid;grid-template-columns:repeat(3,1fr)}.studio-participation button{padding-inline:6px}}
+
+
+/* Explicitly describe the participant-selected adaptations. */
+.studio-adaptation-note,.studio-audio-note{margin:8px 0 0;color:#78847b;font-size:.68rem;line-height:1.55}
+.studio-audio-note{margin:0 0 16px}
+.studio-quiet{background:#f1f1eb}
+.studio-quiet .studio-intro h1{color:#46544b}
+.studio-quiet .studio-age-panel,.studio-quiet .studio-editor,.studio-quiet .studio-tools{background:#fafaf6;border-color:#e9e9e1}
+.studio-quiet .studio-prompt{background:#f5f5ef;color:#69766d}
+.studio-quiet .studio-symbol-board button{background:#f8f8f3;border-color:#e8e8e0}
+.studio-quiet .studio-tools>button.selected{background:#f4f5f0;border-color:#e6e8e0}
