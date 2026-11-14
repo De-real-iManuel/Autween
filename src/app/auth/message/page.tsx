@@ -1,7 +1,7 @@
 import Link from "next/link";
 
 const messages: Record<string, { title: string; body: string }> = {
-  setup: { title: "Account setup is not connected yet", body: "The application needs its Supabase project URL and public anon key before accounts can be created. No password has been stored by Autween." },
+  setup: { title: "Account setup is not connected yet", body: "The application needs its Supabase project URL, public anon key and canonical site URL before accounts can be created. No password has been stored by Autween." },
   "check-email": { title: "Check your email", body: "We sent a verification link. Open it on this device to finish creating your family account. If it does not arrive, check your spam folder." },
   invalid: { title: "Check those details", body: "Enter a valid email address and a password of at least eight characters when creating an account." },
   consent: { title: "Guardian confirmation needed", body: "A parent or legal guardian must create this account and confirm the guardian declaration." },
