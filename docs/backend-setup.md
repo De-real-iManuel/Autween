@@ -17,10 +17,14 @@ Email confirmation should remain enabled. Configure an SMTP provider before rely
 - An adult parent/legal guardian self-declares during account creation and controls the account. This is an unverified declaration, not age or legal-guardianship assurance.
 - A participant space uses a nickname and one of four broad age ranges: 6–9, 10–12, 13–15, 16–17.
 - We deliberately do not ask for date of birth, diagnosis, school, location, or contact details for a participant.
-- Guardian authentication is real; it does not itself establish legal guardianship or complete child assent.
+- Guardian authentication is real. The database records the guardian's self-declaration and version, but this does not verify age or legal guardianship and does not complete the participant's own assent.
 - A participant profile is not an independent login or public identity.
 - Row-level security restricts each guardian to their own participant spaces.
 
+## Database verification after migration
+
+Use two separate test guardian accounts in a non-production Supabase project. Confirm each account can read only its own guardian row and participant spaces; an anonymous request cannot read or write either table; a participant insert with another account's UUID is rejected; and a signup without the required declaration metadata is rejected by the auth trigger. The repository's unit tests do not execute Postgres RLS or Supabase Auth triggers.
+
 ## Important limitations
 
-This is a development backend foundation, not a production safeguarding certification. Before real families use it, Autween still needs a reviewed consent and assent flow, account recovery, data export/deletion workflows, retention policy, abuse reporting and incident response, jurisdiction-specific privacy review, and independent security testing. Do not put service-role keys in `NEXT_PUBLIC_*` variables or commit secrets.
+This is a development backend foundation, not a production safeguarding certification. Existing accounts are backfilled only when their metadata already contains the exact declaration version; older accounts without it must not create participant spaces until a reviewed re-declaration flow is added. Before real families use it, Autween still needs a reviewed consent and assent flow, account recovery, data export/deletion workflows, retention policy, abuse reporting and incident response, jurisdiction-specific privacy review, and independent security testing. Do not put service-role keys in `NEXT_PUBLIC_*` variables or commit secrets.
