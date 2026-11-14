@@ -9,24 +9,29 @@ export default async function CreativeStudioPage({
 }) {
   const { age, participant } = await searchParams;
   const initialAgeBand: AgeBand = isAgeBand(age) ? age : "13-15";
-  let storageScope: string | null = null;
+  const hasSupabaseConfig = Boolean(
+    process.env.NEXT_PUBLIC_SUPABASE_URL && process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+  );
+  let storageScope: string | null = hasSupabaseConfig ? null : "demo";
 
-  try {
-    const supabase = await createSupabaseServerClient();
-    const { data: { user } } = await supabase.auth.getUser();
-    if (!user) {
-      storageScope = "demo";
-    } else if (participant && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(participant)) {
-      const { data } = await supabase
-        .from("participant_profiles")
-        .select("id")
-        .eq("id", participant)
-        .maybeSingle();
-      storageScope = data?.id ?? null;
+  if (hasSupabaseConfig) {
+    try {
+      const supabase = await createSupabaseServerClient();
+      const { data: { user }, error: authError } = await supabase.auth.getUser();
+      if (!authError && !user) {
+        storageScope = "demo";
+      } else if (!authError && user && participant && /^[0-9a-f]{8}-[0-9a-f]{4}-[1-8][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(participant)) {
+        const { data, error } = await supabase
+          .from("participant_profiles")
+          .select("id")
+          .eq("id", participant)
+          .maybeSingle();
+        storageScope = error ? null : data?.id ?? null;
+      }
+    } catch {
+      // Fail closed: export remains available, but local profile storage is disabled.
+      storageScope = null;
     }
-  } catch {
-    // The public prototype remains usable without Supabase configuration.
-    storageScope = "demo";
   }
 
   return <StudioClient initialAgeBand={initialAgeBand} storageScope={storageScope} />;

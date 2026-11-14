@@ -42,11 +42,11 @@ No paid AI API or hosted model is required. Read [the Participation Contract](do
 
 ## Flagship Halloween activity\n\nTry `/play/lantern` for **The Quiet Lantern Garden**, a short activity designed to demonstrate participant-directed adaptation. Participants choose symbols or words, adjust quiet colours, motion, contrast and visual density, and can pause, skip or reset. The interface explains which explicit choices affect the presentation. The activity uses no camera, microphone, timer or background upload. See the [two-minute demo script](docs/kiroween-demo.md).\n\nThis is a functional prototype, not a validated accessibility intervention. It has not yet undergone usability testing with autistic participants.\n\n## Age-aware creative studio
 
-Explore `/play/studio` for age-aware creative formats and optional local-only draft saving. See [the age-aware experience notes](docs/age-aware-experience.md). The studio is a prototype and has not yet been co-designed or validated with participants.
+Explore `/play/studio` for four broad age-band experiences (6–9 through 16–17), age-specific creative formats, symbol/word/combined participation, optional browser read-aloud, and a quiet-presentation control. Draft saving is explicit and scoped to a guardian-managed participant space when opened from the family dashboard; public demo sessions use a separate local scope. Browser storage is not an encrypted vault. See [the age-aware experience notes](docs/age-aware-experience.md). The studio is a prototype and has not yet been co-designed or validated with participants.
 
 ## Accounts and backend
 
-The guardian account and private participant-profile foundation uses Supabase. Follow [the backend setup guide](docs/backend-setup.md) and apply the SQL migration in `supabase/migrations/` before enabling live accounts. Do not use real child data until the safeguarding release gates are complete.
+The guardian account and private participant-profile foundation uses Supabase. Follow [the backend setup guide](docs/backend-setup.md) and apply both SQL migrations in order before enabling guardian-managed participant spaces. Do not use real child data until the safeguarding release gates are complete.
 
 ## Development checks
 
