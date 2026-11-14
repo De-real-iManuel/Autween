@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ArrowLeft, Eye, EyeOff, Moon, Pause, Play, RotateCcw, SkipForward, Sparkles, Sun } from "lucide-react";
+import { ArrowLeft, Eye, EyeOff, Pause, Play, RotateCcw, SkipForward, Sparkles } from "lucide-react";
 import type { AgeBand } from "@/lib/age-experience";
 
 type Piece = { id: string; label: string; symbol: string; detail: string };

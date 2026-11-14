@@ -1,8 +1,9 @@
 "use server";
 
 import { createServerClient } from "@supabase/ssr";
-import { cookies, headers } from "next/headers";
+import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
+import { configuredSiteOrigin } from "@/lib/auth-helpers";
 
 export async function authenticate(formData: FormData) {
   const intent = String(formData.get("intent") ?? "");
@@ -26,18 +27,21 @@ export async function authenticate(formData: FormData) {
 
   if (intent === "signup") {
     const guardianName = String(formData.get("guardianName") ?? "").trim();
-    if (!guardianName || formData.get("guardianConsent") !== "on") {
+    if (!guardianName || guardianName.length > 80 || formData.get("guardianConsent") !== "on") {
       redirect("/auth/message?kind=consent");
     }
-    const requestHeaders = await headers();
-    const originHeader = requestHeaders.get("origin") ?? requestHeaders.get("referer") ?? "http://localhost:3000";
-    const origin = new URL(originHeader).origin;
+    const siteOrigin = configuredSiteOrigin(process.env.NEXT_PUBLIC_SITE_URL);
+    if (!siteOrigin) redirect("/auth/message?kind=setup");
+
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
       options: {
-        emailRedirectTo: `${origin}/auth/callback?next=/dashboard`,
-        data: { guardian_name: guardianName, account_role: "guardian" },
+        emailRedirectTo: `${siteOrigin}/auth/callback?next=%2Fdashboard`,
+        data: {
+          guardian_name: guardianName,
+          guardian_declaration_version: "v1-2026-11-14",
+        },
       },
     });
     if (error) redirect("/auth/message?kind=signup-error");
