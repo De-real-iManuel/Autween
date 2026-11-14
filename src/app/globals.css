@@ -171,3 +171,29 @@ button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #79a4
 .lantern-simple .lantern-layout{grid-template-columns:minmax(0,1.7fr) minmax(250px,.7fr)}.lantern-simple .lantern-builder{padding:14px}.lantern-simple .lantern-piece-options{grid-template-columns:repeat(2,minmax(0,1fr))}
 @media(max-width:760px){.lantern-wrap{width:min(100% - 24px,600px);padding-top:25px}.lantern-choice-panel{align-items:flex-start;flex-direction:column}.lantern-layout{grid-template-columns:1fr}.lantern-scene{height:300px}.lantern-nav{padding:0 13px}.lantern-nav>span{font-size:.9rem}.lantern-nav i{display:none}.lantern-scene-actions{gap:6px}}
 @media(prefers-reduced-motion:reduce){.lantern-app *{scroll-behavior:auto!important;animation:none!important;transition:none!important}}
+
+
+/* Age-aware participation controls: larger, calmer and keyboard-visible. */
+.studio-young{background:#fff8ed}
+.studio-young .studio-intro h1{color:#80543a}
+.studio-young .studio-editor,.studio-young .studio-tools{border-radius:24px}
+.studio-young .studio-age-options button.selected{background:#a8663f}
+.studio-maker{background:#eff6f4}
+.studio-maker .studio-intro h1{color:#315d5b}
+.studio-quiet .studio-editor,.studio-quiet .studio-tools{box-shadow:none}
+.studio-participation{display:grid;gap:9px;margin:18px 0;padding:14px;background:#f7f8f4;border-radius:12px}
+.studio-participation>div{display:flex;gap:7px;flex-wrap:wrap}
+.studio-participation button,.studio-audio-controls button{border:1px solid #dfe5dc;background:#fff;border-radius:99px;padding:9px 13px;color:#5b7061;font-size:.72rem;font-weight:700}
+.studio-participation button.selected{background:#42694d;color:#fff;border-color:#42694d}
+.studio-teen .studio-participation button.selected{background:#405b60;border-color:#405b60}
+.studio-audio-controls{display:flex;gap:8px;flex-wrap:wrap;margin:-8px 0 18px}
+.studio-symbol-section{margin:18px 0}
+.studio-symbol-board{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.studio-symbol-board button{min-height:76px;display:grid;place-items:center;gap:4px;border:1px solid #e3e8df;border-radius:13px;background:#fbfcf8;color:#3d5144}
+.studio-symbol-board button span{font-size:1.65rem}
+.studio-symbol-board button small{font-size:.62rem;color:#77857a}
+.studio-symbol-output{margin:18px 0;padding:15px;border:1px solid #e4e8e0;border-radius:12px;background:#fbfcf8}
+.studio-symbol-output p{min-height:36px;margin:8px 0 0;font-size:1.35rem;line-height:1.7;overflow-wrap:anywhere}
+.studio-actions button:disabled{opacity:.45;cursor:not-allowed}
+.studio-page button:focus-visible,.studio-page a:focus-visible,.studio-page input:focus-visible,.studio-page textarea:focus-visible{outline:3px solid #8cae92;outline-offset:3px}
+@media(max-width:520px){.studio-symbol-board{grid-template-columns:repeat(2,minmax(0,1fr))}.studio-participation>div{display:grid;grid-template-columns:repeat(3,1fr)}.studio-participation button{padding-inline:6px}}

@@ -3,10 +3,10 @@ const DEFAULT_REDIRECT = "/dashboard";
 
 /** Accept only same-origin path redirects. Never forward an arbitrary URL. */
 export function safeLocalRedirectPath(candidate: string | null | undefined): string {
-  if (!candidate || !candidate.startsWith("/") || candidate.startsWith("//") || candidate.includes("\\\\")) {
+  if (!candidate || !candidate.startsWith("/") || candidate.startsWith("//") || candidate.includes("\\")) {
     return DEFAULT_REDIRECT;
   }
-  if (/[\\u0000-\\u001f\\u007f]/.test(candidate)) return DEFAULT_REDIRECT;
+  if (/[\u0000-\u001f\u007f]/.test(candidate)) return DEFAULT_REDIRECT;
 
   try {
     const resolved = new URL(candidate, REDIRECT_ORIGIN);

@@ -24,3 +24,7 @@ const experiences: Record<AgeBand, AgeExperience> = {
 };
 export function getAgeExperience(ageBand: AgeBand): AgeExperience { return experiences[ageBand]; }
 export const ageBands: {id:AgeBand;label:string}[] = [{id:"6-9",label:"6–9"},{id:"10-12",label:"10–12"},{id:"13-15",label:"13–15"},{id:"16-17",label:"16–17"}];
+
+export function isAgeBand(value: unknown): value is AgeBand {
+  return typeof value === "string" && ageBands.some(band => band.id === value);
+}

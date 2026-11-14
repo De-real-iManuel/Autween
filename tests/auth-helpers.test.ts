@@ -12,8 +12,8 @@ test("auth callback rejects absolute and protocol-relative redirects", () => {
 });
 
 test("auth callback rejects backslash and control-character paths", () => {
-  assert.equal(safeLocalRedirectPath("/\\\\example.com"), "/dashboard");
-  assert.equal(safeLocalRedirectPath("/dashboard\\nSet-Cookie:evil"), "/dashboard");
+  assert.equal(safeLocalRedirectPath("/\\example.com"), "/dashboard");
+  assert.equal(safeLocalRedirectPath("/dashboard\nSet-Cookie:evil"), "/dashboard");
 });
 
 test("auth callback falls back for missing or malformed destinations", () => {

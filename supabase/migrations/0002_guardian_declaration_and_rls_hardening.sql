@@ -8,7 +8,7 @@ create table if not exists public.guardian_profiles (
 );
 
 alter table public.guardian_profiles enable row level security;
-revoke all on table public.guardian_profiles from anon, authenticated;
+revoke all on table public.guardian_profiles from public, anon, authenticated;
 grant select on table public.guardian_profiles to authenticated;
 
 drop policy if exists "Guardians can read their own guardian profile" on public.guardian_profiles;
@@ -78,7 +78,7 @@ end
 $$;
 
 alter table public.participant_profiles enable row level security;
-revoke all on table public.participant_profiles from anon, authenticated;
+revoke all on table public.participant_profiles from public, anon, authenticated;
 grant select, insert, update, delete on table public.participant_profiles to authenticated;
 
 drop policy if exists "Guardians can read their own participant spaces" on public.participant_profiles;
