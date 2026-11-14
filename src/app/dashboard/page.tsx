@@ -9,6 +9,8 @@ export default async function Dashboard({ searchParams }: { searchParams: Promis
   const supabase = await createSupabaseServerClient().catch(() => redirect("/auth/message?kind=setup"));
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/?screen=signin");
+  const { data: guardianProfile, error: guardianError } = await supabase.from("guardian_profiles").select("id").eq("id", user.id).maybeSingle();
+  if (guardianError || !guardianProfile) redirect("/auth/message?kind=guardian-setup");
   const { data: profiles } = await supabase.from("participant_profiles").select("id,display_name,age_band,created_at").order("created_at", { ascending: true });
 
   return <main className="account-dashboard">

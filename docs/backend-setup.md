@@ -19,7 +19,7 @@ Email confirmation should remain enabled. Configure an SMTP provider before rely
 - A participant space uses a nickname and one of four broad age ranges: 6–9, 10–12, 13–15, 16–17.
 - We deliberately do not ask for date of birth, diagnosis, school, location, or contact details for a participant.
 - A participant profile is not an independent login or public identity.
-- Row-level security restricts each guardian to their own participant spaces and requires the guardian-declaration row.
+- The dashboard and participant-creation action both require a readable guardian-declaration row. Row-level security independently restricts each guardian to their own participant spaces and requires that same row.
 
 ## Database verification after migration
 

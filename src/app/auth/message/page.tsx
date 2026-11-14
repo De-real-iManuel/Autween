@@ -5,6 +5,7 @@ const messages: Record<string, { title: string; body: string }> = {
   "check-email": { title: "Check your email", body: "We sent a verification link. Open it on this device to finish creating your family account. If it does not arrive, check your spam folder." },
   invalid: { title: "Check those details", body: "Enter a valid email address and a password of at least eight characters when creating an account." },
   consent: { title: "Guardian confirmation needed", body: "A parent or legal guardian must create this account and confirm the guardian declaration." },
+  "guardian-setup": { title: "Family account setup needs one more step", body: "The guardian-declaration database migration is missing, or this account predates the declaration record. Apply the documented Supabase migrations in order, then use a reviewed re-declaration flow for older accounts. No participant space has been created." },
   "signup-error": { title: "We could not create that account", body: "The account provider rejected the request. The email may already be registered, or the password may not meet your provider's policy. Please try logging in or reset your password." },
   "login-error": { title: "We could not sign you in", body: "The email or password was not accepted. Please check your details and try again." },
   "verification-error": { title: "That verification link did not work", body: "The link may have expired or already been used. Start again by creating an account or request a fresh verification email." },

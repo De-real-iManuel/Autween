@@ -16,6 +16,13 @@ export async function createParticipantProfile(formData: FormData) {
   const { data: { user } } = await supabase.auth.getUser();
   if (!user) redirect("/?screen=signin");
 
+  const { data: guardianProfile, error: guardianError } = await supabase
+    .from("guardian_profiles")
+    .select("id")
+    .eq("id", user.id)
+    .maybeSingle();
+  if (guardianError || !guardianProfile) redirect("/auth/message?kind=guardian-setup");
+
   const { error } = await supabase.from("participant_profiles").insert({
     guardian_id: user.id,
     display_name: nickname,
